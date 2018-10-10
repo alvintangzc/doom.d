@@ -4,6 +4,7 @@
 ;;
 (load! "+bindings")
 (load! "init-company")
+(load! "init-web")
 (load! "init-lsp")
 
 ; set theme
@@ -19,27 +20,24 @@
 ;;不生成临时文件
 (setq-default make-backup-files nil)
 
-;; 定义快捷键
-; (defun move-x-line ()
-;   (interactive)
-;   (forward-line 10)
-;   )
-;
-; (defun back-x-line()
-;   (interactive)
-;   (forward-line -10)
-;   )
-;
-; (global-set-key (kbd "C-j") 'move-x-line)
-; (global-set-key (kbd "C-k") 'back-x-line)
+; 定义快捷键
+(defun move-x-line ()
+  (interactive)
+  (forward-line 10)
+  )
+
+(defun back-x-line()
+  (interactive)
+  (forward-line -10)
+  )
+
+(global-set-key (kbd "C-j") 'move-x-line)
+(global-set-key (kbd "C-k") 'back-x-line)
 
 
 ;; .h .cpp jump
 (add-hook 'c-mode-hook (lambda() (local-set-key (kbd "C-c o") 'ff-find-other-file)))
 (add-hook 'c++-mode-hook (lambda() (local-set-key (kbd "C-c o") 'ff-find-other-file)))
-
-(global-unset-key (kbd "C-SPC"))
-(global-set-key (kbd "M-SPC") 'set-mark-command)
 
 ;; use c style comment
 (add-hook 'c-mode-hook (lambda () (c-toggle-comment-style -1)))

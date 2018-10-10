@@ -55,3 +55,8 @@
    (setq cquery-extra-args '("--log-file=~/.cache/log/cq.log"))
    (setq cquery-cache-dir "~/.cache/cquery-cache"))
 
+;; install npm install vue-language-server -g
+;; install lsp-vue
+(def-package! lsp-vue
+  :commands lsp-vue-enable
+  :hook ('vue-mode-hook #'lsp-vue-mmm-enable))
