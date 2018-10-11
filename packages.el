@@ -10,14 +10,12 @@
 (package! symbol-overlay)
 
 ;; language
-(package! css-mode)
-(package! scss-mode)
+;; wen
 (package! css-eldoc)
-(package! json-mode)
-(package! js2-mode)
-(package! js2-refactor)
-(package! web-mode)
 (package! web-beautify)
+
+;python
+(package! py-autopep8)
 
 ;; code
 (package! company)
@@ -25,6 +23,8 @@
 (package! company-lsp)
 (package! lsp-mode)
 (package! lsp-ui)
+
+; c
 (package! cquery)
 
 ;vue
