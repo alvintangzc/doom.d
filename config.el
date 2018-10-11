@@ -46,6 +46,9 @@
 (add-hook 'c-mode-hook (lambda () (c-toggle-comment-style -1)))
 
 
+(after! hl-line
+  (set-face-background 'hl-line "#3e4446") )
+
 ;evil mode
 (with-eval-after-load 'evil
     (defalias #'forward-evil-word #'forward-evil-symbol))
