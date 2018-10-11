@@ -36,6 +36,7 @@
 (map!
   :n "C-x |"   #'toggle-window-split
   :n "C-]"   #'+lookup/definition
+  :n "<f2>"  #'+doom-dashboard/open
   (:leader
     (:prefix "f"
       :desc "Save File":n "w" #'save-buffer)

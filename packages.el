@@ -6,7 +6,10 @@
 ;; (package! another-package :recipe (:fetcher github :repo "username/repo"))
 ;; (package! builtin-package :disable t)
 
+;; common
 (package! symbol-overlay)
+
+;; code
 (package! company)
 (package! company-lsp)
 (package! lsp-mode)

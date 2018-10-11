@@ -9,6 +9,7 @@
 
 ; set theme
 (setq doom-theme 'doom-molokai)
+(setq doom-font (font-spec :family "DejaVu Sans Mono" :size 14))
 
 ;; scorll 留10行
 (setq scroll-margin 10)
@@ -34,6 +35,8 @@
 (global-set-key (kbd "C-j") 'move-x-line)
 (global-set-key (kbd "C-k") 'back-x-line)
 
+(which-function-mode 1)
+(setq which-func-unknown "n/a")
 
 ;; .h .cpp jump
 (add-hook 'c-mode-hook (lambda() (local-set-key (kbd "C-c o") 'ff-find-other-file)))
@@ -46,3 +49,4 @@
 ;evil mode
 (with-eval-after-load 'evil
     (defalias #'forward-evil-word #'forward-evil-symbol))
+
