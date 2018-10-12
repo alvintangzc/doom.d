@@ -15,6 +15,8 @@
 (setq doom-theme 'doom-molokai)
 (setq doom-font (font-spec :family "DejaVu Sans Mono" :size 14))
 
+(when IS-MAC (add-hook 'after-init-hook (lambda () (osx-clipboard-mode -1))))
+
 ;; scorll 留10行
 (setq scroll-margin 10)
 
