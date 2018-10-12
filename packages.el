@@ -9,14 +9,6 @@
 ;; common
 (package! symbol-overlay)
 
-;; language
-;; wen
-(package! css-eldoc)
-(package! web-beautify)
-
-;python
-(package! py-autopep8)
-
 ;; code
 (package! company)
 (package! company-web)
@@ -24,8 +16,22 @@
 (package! lsp-mode)
 (package! lsp-ui)
 
-; c
+;; language
+;; c
 (package! cquery)
 
-;vue
+;; vue
 (package! lsp-vue)
+
+;; web
+(package! web-beautify)
+
+;; python
+;(package! py-autopep8)
+(package! lsp-python)
+
+;; protobuf
+(package! protobuf-mode)
+
+;; rust
+(package! lsp-rust)

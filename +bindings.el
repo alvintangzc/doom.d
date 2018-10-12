@@ -35,7 +35,7 @@
 
 (map!
   :n "C-x |"   #'toggle-window-split
-  :n "C-]"   #'+lookup/definition
+  :n "C-]"   #'xref-find-definitions
   :n "<f2>"  #'+doom-dashboard/open
   (:leader
     (:prefix "f"

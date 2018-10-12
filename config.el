@@ -7,6 +7,10 @@
 (load! "init-web")
 (load! "init-lsp")
 
+; (setq package-archives
+;         '(("gnu"   . "https://elpa.emacs-china.org/gnu/")
+;         ("melpa" . "https://elpa.emacs-china.org/melpa/")
+;         ("org"   . "https://orgmode.org/elpa/")))
 ; set theme
 (setq doom-theme 'doom-molokai)
 (setq doom-font (font-spec :family "DejaVu Sans Mono" :size 14))
@@ -52,4 +56,34 @@
 ;evil mode
 (with-eval-after-load 'evil
     (defalias #'forward-evil-word #'forward-evil-symbol))
+
+
+;; 退出不提示
+(defun my-save-buffers-kill-emacs (&optional arg)
+  "Offer to save each buffer(once only), then kill this Emacs process.
+With prefix ARG, silently save all file-visiting buffers, then kill."
+  (interactive "P")
+  (save-some-buffers arg t)
+  (and (or (not (fboundp 'process-list))
+       ;; process-list is not defined on MSDOS.
+       (let ((processes (process-list))
+         active)
+         (while processes
+           (and (memq (process-status (car processes)) '(run stop open listen))
+            (process-query-on-exit-flag (car processes))
+            (setq active t))
+           (setq processes (cdr processes)))
+         (or (not active)
+         (progn (list-processes t)
+            (yes-or-no-p "Active processes exist; kill them and exit anyway? ")))))
+       ;; Query the user for other things, perhaps.
+       (run-hook-with-args-until-failure 'kill-emacs-query-functions)
+       (or (null confirm-kill-emacs)
+       (funcall confirm-kill-emacs "Really exit Emacs? "))
+       (kill-emacs)))
+(global-set-key (kbd "C-x C-c") 'my-save-buffers-kill-emacs)
+;; end
+
+(def-package! protobuf-mode
+    :init (add-to-list 'auto-mode-alist '("\\.proto$" . protobuf-mode)))
 

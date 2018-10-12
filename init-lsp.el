@@ -38,6 +38,9 @@
   :defines company-backends
   :init (cl-pushnew 'company-lsp company-backends))
 
+;; LSP起不来
+;; TODO 检查是否有工程文件
+
 (def-package! cquery
   :defines projectile-project-root-files-top-down-recurring
   :commands lsp-cquery-enable
@@ -60,3 +63,21 @@
 (def-package! lsp-vue
   :commands lsp-vue-enable
   :hook ('vue-mode-hook #'lsp-vue-mmm-enable))
+
+;; Python support for lsp-mode using pyls.
+;; Install: pip install python-language-server
+(def-package! lsp-python
+  :commands lsp-python-enable
+  :hook (python-mode . lsp-python-enable)
+  :config
+  (lsp-define-stdio-client lsp-python "python"
+                           #'projectile-project-root
+                           '("/usr/local/bin/pyls")))
+
+;; Rust support for lsp-mode using the Rust Language Server.
+;; Install: rustup component add rls-preview rust-analysis rust-src
+(def-package! lsp-rust
+  :commands lsp-rust-enable
+  :hook (rust-mode . lsp-rust-enable)
+  :config
+  (setq lsp-rust-rls-command '("rustup" "run" "nightly" "rls")))

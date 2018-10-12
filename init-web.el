@@ -3,11 +3,6 @@
 (after! css-mode
    (setq css-indent-offset 2))
 
-;; CSS eldoc
-(def-package! css-eldoc
-  :commands turn-on-css-eldoc
-  :hook ((css-mode scss-mode less-css-mode) . turn-on-css-eldoc))
-
 ;; Major mode for editing web templates
 (after! web-mode
   (add-to-list 'auto-mode-alist '("\\.\\(phtml\\|php|[gj]sp\\|as[cp]x\\|erb\\|djhtml\\|html?\\|hbs\\|ejs\\|jade\\|swig\\|tm?pl\\|vue\\)$" . web-mode))
@@ -36,3 +31,7 @@
   :config
   ;; Set indent size to 2
   (setq web-beautify-args '("-s" "2" "-f" "-")))
+
+(def-package! rainbow-mode
+  :diminish rainbow-mode
+  :hook ((emacs-lisp-mode web-mode css-mode) . rainbow-mode))
