@@ -15,10 +15,10 @@
 (setq doom-theme 'doom-molokai)
 (setq doom-font (font-spec :family "DejaVu Sans Mono" :size 14))
 
+(when IS-MAC (add-hook 'after-init-hook (lambda () (osx-clipboard-mode -1))))
+
 ;; scorll 留10行
 (setq scroll-margin 10)
-
-(which-function-mode 1)
 
 ;;不产生备份文件
 (setq make-backup-files nil)
@@ -84,6 +84,6 @@ With prefix ARG, silently save all file-visiting buffers, then kill."
 (global-set-key (kbd "C-x C-c") 'my-save-buffers-kill-emacs)
 ;; end
 
+;; protobuf
 (def-package! protobuf-mode
     :init (add-to-list 'auto-mode-alist '("\\.proto$" . protobuf-mode)))
-
