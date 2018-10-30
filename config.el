@@ -90,3 +90,4 @@ With prefix ARG, silently save all file-visiting buffers, then kill."
 ;; protobuf
 (def-package! protobuf-mode
     :init (add-to-list 'auto-mode-alist '("\\.proto$" . protobuf-mode)))
+
