@@ -6,6 +6,7 @@
 (load! "init-company")
 (load! "init-web")
 (load! "init-lsp")
+(load! "init-c")
 
 ; (setq package-archives
 ;         '(("gnu"   . "https://elpa.emacs-china.org/gnu/")
@@ -52,6 +53,8 @@
 
 (after! hl-line
   (set-face-background 'hl-line "#3e4446") )
+(after! flycheck
+	(setq flycheck-check-syntax-automatically '(mode-enabled save)) )
 
 ;evil mode
 (with-eval-after-load 'evil

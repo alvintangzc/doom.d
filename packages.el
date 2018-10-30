@@ -19,6 +19,7 @@
 ;; language
 ;; c
 (package! cquery)
+(package! srefactor)
 
 ;; vue
 (package! lsp-vue)

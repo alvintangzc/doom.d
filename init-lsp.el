@@ -26,7 +26,7 @@
   :init
     (setq lsp-ui-sideline-enable nil)
     (setq lsp-ui-doc-enable nil)
-  ;  (setq lsp-ui-flycheck-live-reporting nil)
+    (setq lsp-ui-flycheck-live-reporting nil)
   :bind (:map lsp-ui-mode-map
               ([remap xref-find-definitions] . lsp-ui-peek-find-definitions)
               ([remap xref-find-references] . lsp-ui-peek-find-references))
